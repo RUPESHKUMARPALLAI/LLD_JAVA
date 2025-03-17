@@ -52,7 +52,7 @@ public class TicTacToeGame {
             }
 
             //read the user input
-            System.out.print("Player:" + playerTurn.name + " Enter row,column: ");
+            System.out.print("Player:" + playerTurn.getName() + " Enter row,column: ");
             Scanner inputScanner = new Scanner(System.in);
             String s = inputScanner.nextLine();
             String[] values = s.split(",");
@@ -61,18 +61,17 @@ public class TicTacToeGame {
 
 
             //place the piece
-            boolean pieceAddedSuccessfully = gameBoard.addPiece(inputRow,inputColumn, playerTurn.playingPiece);
+            boolean pieceAddedSuccessfully = gameBoard.addPiece(inputRow,inputColumn, playerTurn.getPlayingPiece());
             if(!pieceAddedSuccessfully) {
-                //player can not insert the piece into this cell, player has to choose another cell
-                System.out.println("Incorredt possition chosen, try again");
+                System.out.println("Incorrect position chosen, try again");
                 players.addFirst(playerTurn);
                 continue;
             }
             players.addLast(playerTurn);
 
-            boolean winner = isThereWinner(inputRow, inputColumn, playerTurn.playingPiece.pieceType);
+            boolean winner = isThereWinner(inputRow, inputColumn, playerTurn.getPlayingPiece().pieceType);
             if(winner) {
-                return playerTurn.name;
+                return playerTurn.getName();
             }
         }
 

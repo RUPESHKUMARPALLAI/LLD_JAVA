@@ -15,17 +15,12 @@ public class Board {
     }
 
 
-    public boolean addPiece(int row, int column, PlayingPiece playingPiece) {
-        try {
-            if (board[row][column] != null) {
-                return false; // Cell already occupied
-            }
-            board[row][column] = playingPiece;
-            return true;
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Invalid position: (" + row + ", " + column + "). Please enter values within board limits.");
+    public boolean addPiece(int row, int coloumn, PlayingPiece playingPiece) {
+        if (board[row][coloumn] != null) {
             return false;
         }
+        board[row][coloumn] = playingPiece;
+        return true;
     }
 
     public List<Pair<Integer, Integer>> getFreeCells() {
