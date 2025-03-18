@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="TicTacToe" options="" />
+      <module name="TicTacToe" options="-parameters" />
     </option>
   </component>
 </project>
